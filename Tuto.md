@@ -51,4 +51,6 @@ La dashboard permet une meilleure gestion du déploiement pour des personnes moi
 4. Trouver un token permettant de se connecter à la dashboard : `<sudo kubectl get secret>`. (Celle-ci va retourner une liste de *secret*). 
 5. Mettre le nom du secret dans la commande suivante : `<sudo kubectl describe secret  default-name-secret>`. (Celle-ci va retourner une liste d'information dont le token, que l'on peut utiliser pour se connecter dans la dashboard).
 
-
+## **5. Arrêter un déploiement et un service**
+* Pour arrêter un déploiement : `<kubectl delete deployement/nginx-deployment>`
+* Pour arrêter un service : `<kubectl delete service/nginx-deployment>`
