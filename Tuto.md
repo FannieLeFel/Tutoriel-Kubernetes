@@ -1,5 +1,5 @@
 # :mortar_board:**TUTORIEL POUR KUBERNETES**:mortar_board:
-
+![GitHub Logo](/images/explication.png)
 ## :zzz:**1. INSTALLATIONS**:zzz:
 
 ### :whale2:**Installation de Docker pour Linux**:whale2:
