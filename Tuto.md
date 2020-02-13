@@ -1,5 +1,5 @@
 # :mortar_board:**TUTORIEL POUR KUBERNETES**:mortar_board:
-![GitHub Logo](/images/explication.png)
+![](/KubernetesDockerpic2.png)
 ## :zzz:**1. INSTALLATIONS**:zzz:
 
 ### :whale2:**Installation de Docker pour Linux**:whale2:
@@ -54,3 +54,6 @@ La dashboard permet une meilleure gestion du déploiement pour des personnes moi
 ## :checkered_flag:**5. Arrêter un déploiement et un service**:checkered_flag:
 * Pour arrêter un déploiement : `<kubectl delete deployement/nginx-deployment>`
 * Pour arrêter un service : `<kubectl delete service/nginx-deployment>`
+### Quelques liens utiles
+* https://kubernetes.io/fr/docs/home/
+* https://hub.docker.com/ 
