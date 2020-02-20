@@ -13,6 +13,7 @@
 * ` mkdir -p /usr/local/bin/ `
 * ` install minikube /usr/local/bin/ `
 3. Lancer le Minikube avec la machine virtuelle de votre choix : ` minikube start --vm-driver= driver_name   `
+![](/minikube_start.png)
 4. Vérification de la réussite de l’installation : ` minikube status `
 
 ## :books:**2. Familiarisation avec Kubernetes**:books:
@@ -28,7 +29,10 @@ Lancer Minikube (permet de lancer une machine virtuelle qui héberge Kubernetes)
 
 ### :whale2:**Déploiement avec une image Docker**:whale2:	
 1. Pour lancer une image trouvée sur DockerHub : ` kubectl run my-nginx --image=nginx --port=80 `
+![](/Déploiement_image.png)
 2. Pour exposer l'image créée : ` kubectl expose deployment my-nginx --port=80 --type=LoadBalancer `. Le loadbalancer sert à répartir les tâches.
+3. Vérification : connaître son port en tapant la commande ` get service ` et taper ` localhost:port ` sur votre navigateur.
+![](/nginx_running.png)
 
 ### :pencil:**Déploiement avec un fichier yaml**:pencil:
 * Pour lancer et exposer une image : ` kubectl apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml `
@@ -36,20 +40,25 @@ Lancer Minikube (permet de lancer une machine virtuelle qui héberge Kubernetes)
 ### :crystal_ball:**Vérification du bon fonctionnement du déploiement** :crystal_ball:
 * Fonctionnement général : ` kubectl get deployments `
 * Détails du déploiement : ` kubectl describe deployments `
+![](/verif_deployement.png)
 * Nous pouvons également vérifier les ReplicaSet : ` kubectl get rs `
 * Nous pouvons également voir les pods avec leur label : ` kubectl get pods --show-labels `
+![](/ReplicatSetAndPods.png)
 
 ### :arrows_counterclockwise:**Exemple de mise à jour d'une image**:arrows_counterclockwise:
 * Pour mettre à jour l'image dans le déploiement nginx : ` kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1 --record `
 * Pour voir le statut du déploiement de la mise à jour : ` kubectl rollout status deployment.v1.apps/nginx-deployment `
+![](/statut_deployement.png)
 
 ## :bar_chart:**4. Dashboard**:bar_chart:
 La dashboard permet une meilleure gestion du déploiement pour des personnes moins familières avec les commandes de Kubernetes.
 1. Pour mettre en place la dashboard : ` sudo kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml `
 2. Pour pouvoir changer l'accessibilité de la dashboard : ` sudo kubectl proxy ` 
 3. Rentrer l'URL suivante dans un navigateur pour accéder à votre dashboard : [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/deployment?namespace=default](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/deployment?namespace=default)
-4. Trouver un token permettant de se connecter à la dashboard : ` sudo kubectl get secret `. (Celle-ci va retourner une liste de *secret*). 
+4. Trouver un token permettant de se connecter à la dashboard : ` sudo kubectl get secret `. (Celle-ci va retourner une liste de *secret*).
 5. Mettre le nom du secret dans la commande suivante : ` sudo kubectl describe secret  default-name-secret `. (Celle-ci va retourner une liste d'information dont le token, que l'on peut utiliser pour se connecter dans la dashboard).
+![](/secret.png)
+![](/dashboardCo.png)
 
 ## :checkered_flag:**5. Arrêter un déploiement et un service**:checkered_flag:
 * Pour arrêter un déploiement : ` kubectl delete deployement/nginx-deployment `
