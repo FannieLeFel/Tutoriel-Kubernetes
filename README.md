@@ -61,7 +61,7 @@ La dashboard permet une meilleure gestion du déploiement pour des personnes moi
 ![](/dashboardCo.png)
 
 ## :checkered_flag:**5. Arrêter un déploiement et un service**:checkered_flag:
-* Pour arrêter un déploiement : ` kubectl delete deployement/nginx-deployment `
+* Pour arrêter un déploiement : ` kubectl delete deployment/nginx-deployment `
 * Pour arrêter un service : ` kubectl delete service/nginx-deployment `
 
 ## :computer:**Quelques liens utiles**:computer:
